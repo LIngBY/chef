@@ -21,21 +21,6 @@ action :attach do
 end
 
 action :detach do
-#  file '/opt/file.rb' do
-#    content del_server
-#  end	
-  #ruby_block 'delete line' do
-  #  block do
-  #    lines = File.readlines('/etc/nginx/nginx.conf')
-  #    out_lines = lines.select {|line| !line.include? del_server} 
-  #    File.open('/etc/nginx/nginx.conf','w') do |f|
-  #      out_lines.each do |line|
-  #        f.write line
-  #      end
-  #    end
-#
-#    end
-#  end
   bash 'del' do
     code <<-EOH
       sed -i '/#{del_server}/d' /etc/nginx/nginx.conf
