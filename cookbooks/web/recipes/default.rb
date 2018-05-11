@@ -12,9 +12,9 @@ service 'nginx' do
 end
 
 
-#web_server 'serv' do
-#  action [:attach]
-#end
+web_server 'serv' do
+  action [:attach]
+end
 
 web_server 'also' do
   del_server '2.2.2.2'
