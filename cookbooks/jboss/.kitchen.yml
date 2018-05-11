@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+  network:
+   - ["private_network", ip: '192.168.11.11']
+
+provisioner:
+  name: chef_zero
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: sbeliakou/centos-7.4-x86_64-minimal
+
+suites:
+  - name: default
+    run_list:
+      - recipe[jboss::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
+ 
